@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { FaBeer } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SingleChef = ({data}) => {
      const{id,name,specialty,picture,likes,recipes,experience}=data
@@ -13,10 +15,13 @@ const SingleChef = ({data}) => {
              <h2 className='text-bold'>{name}</h2>
              <p className='text-bold'>Experience:<small> {experience}</small></p>
              <span> Recipes:{recipes}</span>
+             <p className='mt-5'>
+             <span> Likes: {likes}</span>
+             </p>
               
           </Col>
           <Col lg={3}>
-            <button className='mt-5'> View Recipes</button>
+            <Button className='btn-secondary'><Link to={`/recipe/${id}`}>View Recipes</Link></Button>
           </Col>
 
         </Row>
