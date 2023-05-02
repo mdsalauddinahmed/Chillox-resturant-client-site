@@ -1,12 +1,19 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Navbar from '../shared_pages/Navber/Navbar';
+ 
+import Banner from '../../Components/Banner/Banner';
+import Navigation from '../shared_pages/Navber/Navigation';
+import Footer from '../../Components/Footer/Footer';
+import { Outlet } from 'react-router-dom';
+import ListOfChefs from '../../Components/ListOfChefs/ListOfChefs';
 
 const Home = () => {
     return (
-        <Container>
-             <Navbar></Navbar>
-        </Container>
+        <> 
+         
+        <Banner></Banner>
+        <ListOfChefs></ListOfChefs>
+        </>
     );
 };
 
