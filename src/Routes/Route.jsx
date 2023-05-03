@@ -13,6 +13,7 @@ import RecipeLoyOut from '../Layout/RecipeLoyout/RecipeLoyout';
 import Recipe from '../Pages/Recipe/Recipe';
 import About from '../Pages/About/About';
 import Blog from '../Pages/Blog/Blog';
+import PrivateRoute from './PrivateRoute';
  
   const router = createBrowserRouter([
      {
@@ -47,7 +48,7 @@ import Blog from '../Pages/Blog/Blog';
         children:[
           {
             path:':id',
-            element: <Recipe></Recipe> ,
+            element: <PrivateRoute><Recipe></Recipe></PrivateRoute> ,
             loader:({params})=>fetch(`https://bonolota-server-mdsalauddinahmed.vercel.app/recipe/${params.id}`)
           }
         ]

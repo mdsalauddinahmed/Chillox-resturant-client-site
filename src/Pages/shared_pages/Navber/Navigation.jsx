@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
  
  
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+
 
 const Navigation = () => {
+ const { user,logOut} = useContext(AuthContext)
+const handleLogOut=()=>{
+  logOut()
+  .then()
+  .catch(error=>console.log(error))
+}
+
+
+
     return (
         <Container>
           <Navbar bg="light" expand="lg">
@@ -21,8 +33,14 @@ const Navigation = () => {
             <Link to="/about" className='mx-4 text-decoration-none text-dark'>About Us</Link>
             <Link to="/blog" className='mx-4 text-decoration-none text-dark'>Blogs</Link>
           </Nav>
-          
-            <Button variant="outline-success"><Link className='text-decoration-none text-dark' to="/login">Login</Link></Button>
+          {
+            user&&
+            <FaUser style={{fontSize:'2rem'}} ></FaUser>
+          }
+          { user?
+            
+            <Button onClick={handleLogOut} variant="outline-success"><Link className='text-decoration-none text-dark' to="/login">LogOut</Link></Button>:
+            <Button variant="outline-success"><Link className='text-decoration-none text-dark' to="/login">Login</Link></Button>}
           
         </Navbar.Collapse>
       </Container>
