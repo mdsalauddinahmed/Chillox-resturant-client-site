@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
+ 
+import 'react-toastify/dist/ReactToastify.css';
 
 import '@smastrom/react-rating/style.css'
 import { Button, Card, Container } from 'react-bootstrap';
-
+import { ToastContainer, toast } from 'react-toastify';
+ 
 const RecipeCard = ({card}) => {
     console.log(card)
     const{recipe_name,cooking_method,ingredients,rating}=card
+      
+    const notify = () => {
+        toast("wow!! its My favorite Recipe");
+        setFavorite(true)
+    };
+
+    const [Favorite,setFavorite]=useState(false)
+
     return (
          <Container>
              <Card className='mt-4' >
@@ -25,7 +36,10 @@ const RecipeCard = ({card}) => {
         
          <div className='d-flex justify-content-between align-items-center'>
        <div><Rating style={{ maxWidth: 250 }} readOnly value={rating} />Rating: <span>{rating}</span></div>
-      <div><Button variant="secondary">Favorite</Button></div>
+       <div>
+        <Button onClick={notify} disabled={Favorite} variant="secondary">Favorite</Button>
+        <ToastContainer></ToastContainer>
+       </div>
          </div>
       </Card.Body>
     </Card>
