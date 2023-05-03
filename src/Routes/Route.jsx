@@ -38,7 +38,7 @@ import Recipe from '../Pages/Recipe/Recipe';
           {
             path:':id',
             element: <Recipe></Recipe> ,
-            loader:({params})=>fetch(`http://localhost:5000/recipe/${params.id}`)
+            loader:({params})=>fetch(`https://bonolota-server-mdsalauddinahmed.vercel.app/recipe/${params.id}`)
           }
         ]
       }

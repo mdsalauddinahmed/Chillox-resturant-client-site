@@ -6,7 +6,7 @@ const ListOfChefs = () => {
     const[allChef,setAllChef]=useState([])
 
       useEffect(()=>{
-        fetch(`http://localhost:5000`)
+        fetch(`https://bonolota-server-mdsalauddinahmed.vercel.app`)
         .then(res=>res.json())
         .then(data=> setAllChef(data))
         .catch(error=>console.error(error))
