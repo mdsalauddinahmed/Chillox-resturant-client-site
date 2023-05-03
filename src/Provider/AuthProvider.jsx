@@ -8,20 +8,21 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
      
     const [user,setUser]=useState(null)
+    const [reload,setReload]=useState(true)
 
 
 
     const CreateUser =(email,password)=>{
-         
+          setReload(true)
          return createUserWithEmailAndPassword(auth, email, password)
       }
       const signIn =(email,password)=>{
-        
+        setReload(true)
         return signInWithEmailAndPassword(auth, email, password)
       }
    
       const logOut =()=>{
-        
+        setReload(true)
         return  signOut(auth)
       }
 
@@ -30,6 +31,7 @@ const AuthProvider = ({children}) => {
         const unsubscribe=  onAuthStateChanged(auth,loggedUser=>{
            console.log("user logged in observer",loggedUser)
            setUser(loggedUser)
+           setReload(false)
             
           })
           return ()=>{
@@ -42,7 +44,8 @@ const AuthProvider = ({children}) => {
         user,
         CreateUser,
         signIn,
-        logOut
+        logOut,
+        reload
       }
 
 
