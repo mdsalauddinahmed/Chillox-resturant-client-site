@@ -35,10 +35,12 @@ const Recipe = () => {
             </Row>
             <hr />
             <Row>
-                 {
+                <div className='my-5'>
+                {
                     (recipe.recipesItem).map(card=> <RecipeCard card={card}></RecipeCard> )
                  }
                 
+                </div>
             </Row>
          </Container>
     );
