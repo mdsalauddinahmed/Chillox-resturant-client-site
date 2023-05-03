@@ -18,20 +18,21 @@ const handleLogOut=()=>{
 
 
     return (
-        <Container>
-          <Navbar bg="light" expand="lg">
+       <div className='bg-dark  '>
+         <Container>
+          <Navbar   expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#"  className='text-white'>Chillox</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="mx-auto my-2 my-lg-0"
+            className="mx-auto my-2 my-lg-0 "
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-           <Link to="/" className='mx-4 text-decoration-none text-dark'>Home</Link>
-            <Link to="/about" className='mx-4 text-decoration-none text-dark'>About Us</Link>
-            <Link to="/blog" className='mx-4 text-decoration-none text-dark'>Blogs</Link>
+           <Link to="/" className='mx-4 text-decoration-none text-white  '>Home</Link>
+            <Link to="/about" className='mx-4 text-decoration-none text-white  '>About Us</Link>
+            <Link to="/blog" className='mx-4 text-decoration-none text-white '>Blogs</Link>
           </Nav>
           {
             user&&
@@ -39,13 +40,14 @@ const handleLogOut=()=>{
           }
           { user?
             
-            <Button onClick={handleLogOut} variant="outline-success"><Link className='text-decoration-none text-dark' to="/login">LogOut</Link></Button>:
-            <Button variant="outline-success"><Link className='text-decoration-none text-dark' to="/login">Login</Link></Button>}
+            <Button onClick={handleLogOut} variant="outline-success"><Link className='text-decoration-none text-white' to="/login">LogOut</Link></Button>:
+            <Button variant="outline-success"><Link className='text-decoration-none text-white' to="/login">Login</Link></Button>}
           
         </Navbar.Collapse>
       </Container>
     </Navbar>
         </Container>
+       </div>
     );
 };
 

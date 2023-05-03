@@ -26,7 +26,7 @@ const Login = () => {
         // navigate(from,{replace:true})
     })
     .catch(error =>{
-         setError( 'sorry its not suitable');
+         setError( 'username and password invalid');
     })
 
  }
@@ -50,7 +50,7 @@ const Login = () => {
         </Form.Group>
  
 
-        <Button variant="secondary" type="submit">
+        <Button className='text-center' variant="secondary" type="submit">
            Login
         </Button>
         <br />
@@ -67,6 +67,10 @@ const Login = () => {
         </Col>
         <Col lg={2}></Col>
 
+     </Row>
+     <Row>
+         <Button variant='secondary' className='my-3'>SignIn by Google</Button> <br />
+         <Button className='mb-5' variant="info">SignIn by Github</Button>
      </Row>
     </Container>
     );

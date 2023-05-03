@@ -14,11 +14,13 @@ import Recipe from '../Pages/Recipe/Recipe';
 import About from '../Pages/About/About';
 import Blog from '../Pages/Blog/Blog';
 import PrivateRoute from './PrivateRoute';
+import ErrorPage from '../Erropage/ErrorPage';
  
   const router = createBrowserRouter([
      {
         path:"/",
         element:<LoginLayout></LoginLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
     children:[
         {
           path:'/',
@@ -45,6 +47,7 @@ import PrivateRoute from './PrivateRoute';
      {
         path:'recipe',
         element:<RecipeLoyOut></RecipeLoyOut>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
           {
             path:':id',
