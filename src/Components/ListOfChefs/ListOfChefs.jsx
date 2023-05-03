@@ -13,7 +13,7 @@ const ListOfChefs = () => {
       },[])
       console.log(allChef)
     return (
-        <div>
+        <div className='lg:cols-row-3'>
 
       {
        allChef.map(data=> 

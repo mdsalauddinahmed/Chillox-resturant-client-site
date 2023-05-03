@@ -1,12 +1,38 @@
-import React from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const [error,setError]=useState("")
+  
+    const {signIn}=useContext(AuthContext)
+ const handleLogin =event =>{
+    event.preventDefault()
+    const form= event.target;
+    const email = form.email.value;
+    const  password = form.password.value;
+    event.target.reset()
+    console.log(email, password)
+    signIn(email,password)
+    .then(result=>{
+        const loggedUser = result.user;
+        console.log(loggedUser)
+        // navigate(from,{replace:true})
+    })
+    .catch(error =>{
+         setError( 'sorry its not suitable');
+    })
+
+ }
+
+
     return (
         <Container className="w-25 mx-auto mt-5">
-      <h2>Please Login</h2>
-      <Form   >
+     <Row>
+        <Col lg={2}></Col>
+        <Col lg={8}>
+        <Form onSubmit={handleLogin} >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" name='email' placeholder="Enter email" />
@@ -17,12 +43,9 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name= 'password' placeholder="Password" />
         </Form.Group>
+ 
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
+        <Button variant="secondary" type="submit">
            Login
         </Button>
         <br />
@@ -31,12 +54,15 @@ const Login = () => {
           </Form.Text>
           <br />
         <Form.Text className="  text-warning">
-            
+         {error}
           </Form.Text>
-        <Form.Text className="text-muted">
-            
-          </Form.Text>
+         
       </Form>
+
+        </Col>
+        <Col lg={2}></Col>
+
+     </Row>
     </Container>
     );
 };
