@@ -3,6 +3,7 @@ import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 import { FaBeer } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './chefs.css'
+import LazyLoad from 'react-lazy-load';
 
 const SingleChef = ({data}) => {
      const{id,name,specialty,picture,likes,recipes,experience}=data
@@ -18,7 +19,9 @@ const SingleChef = ({data}) => {
           <div class="card " >
   <div className="row g-0">
     <div className="col-md-4">
-      <img className='  m-3 rounded' style={{width:"200px",height:"200px"}} src={picture} alt="" />
+   <LazyLoad offset={1000} once>
+   <img className='  m-3 rounded' style={{width:"200px",height:"200px"}} src={picture} alt="" />
+   </LazyLoad>
     </div>
     <div className="col-md-8">
       <div className="card-body ms-5 p-3 mt-4">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
+import LazyLoad from 'react-lazy-load';
 
 const Recipe = () => {
     const recipe =useLoaderData();
@@ -30,7 +31,9 @@ const Recipe = () => {
                     <h2>Experience: {experience}</h2>
                 </Col>
                 <Col lg={6} className=''>
+                    <LazyLoad offset={100} once>
                     <img className='rounded m-5' style={{height:"400px",width:"400px"}} src={picture} alt="" />
+                    </LazyLoad>
                 </Col>
             </Row>
             <hr />
