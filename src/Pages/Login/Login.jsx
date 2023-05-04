@@ -9,7 +9,33 @@ const Login = () => {
     const location =useLocation()
     const from = location.state?.from?.pathname || '/'
   
-     const{signIn}=useContext(AuthContext)
+     const{signIn,logInWithGoogle,logInWithGithub}=useContext(AuthContext)
+
+
+     const handleLogInGoogle=()=>{
+      console.log('clicked')
+       logInWithGoogle()
+       .then((result) => {
+        const user = result.user;
+        setUser(user);
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+     }
+
+     const handleLogInGithub =()=>{
+      logInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+      });
+     }
 
  const handleLogin =event =>{
     event.preventDefault()
@@ -69,8 +95,8 @@ const Login = () => {
 
      </Row>
      <Row>
-         <Button variant='secondary' className='my-3'>SignIn by Google</Button> <br />
-         <Button className='mb-5' variant="info">SignIn by Github</Button>
+         <Button variant='secondary' onClick={handleLogInGoogle} className='my-3'>SignIn by Google</Button> <br />
+         <Button className='mb-5' onClick={handleLogInGithub} variant="info">SignIn by Github</Button>
      </Row>
     </Container>
     );

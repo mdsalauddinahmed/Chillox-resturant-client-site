@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/Firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 export const AuthContext = createContext(null);
 
  
@@ -20,12 +20,6 @@ const AuthProvider = ({children}) => {
         setReload(true)
         return signInWithEmailAndPassword(auth, email, password)
       }
-   
-      const logOut =()=>{
-        setReload(true)
-        return  signOut(auth)
-      }
-
 
       useEffect(()=>{
         const unsubscribe=  onAuthStateChanged(auth,loggedUser=>{
@@ -39,13 +33,45 @@ const AuthProvider = ({children}) => {
           }
        },[])
 
+   const userProfileUpdate =(user,name,photo)=>{
+   return updateProfile(user,{
+          displayName: name  , photoURL:  photo
+        })
+      }
+
+      const Provider = new GoogleAuthProvider();
+      const GitProvider = new GithubAuthProvider();
+
+
+      const logInWithGoogle =()=>{
+
+        return signInWithPopup(auth,Provider)
+      }
+      
+   const logInWithGithub =()=>{
+     return signInWithPopup(auth, GitProvider)
+   }
+
+
+
+      const logOut =()=>{
+        setReload(true)
+        return  signOut(auth)
+      }
+
+
+      
+
       
       const authInformation ={
         user,
         CreateUser,
         signIn,
         logOut,
-        reload
+        reload, 
+        userProfileUpdate,
+        logInWithGoogle,
+        logInWithGithub
       }
 
 

@@ -9,56 +9,38 @@ const SingleChef = ({data}) => {
     return (
        <Container>
         <Row className='my-4'>
-          <Col lg={2}>
+          <Col lg={3}>
           
           </Col>
-          <Col className='mt-5' lg={8}>
+          <Col className='mt-2' lg={6}>
 
 
+          <div class="card " >
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img className='  m-3 rounded' style={{width:"200px",height:"200px"}} src={picture} alt="" />
+    </div>
+    <div className="col-md-8">
+      <div className="card-body ms-5 p-3 mt-4">
+        <h5 className="card-title">{name}</h5>
+        <p className="card-text">
+          <span> Recipes: {recipes}</span>
+          <span className='mx-4'>  Likes: {likes }</span>
+        </p>
+        <h4 className="card-text">Experience:<small className="text-muted">{experience} </small></h4>
+        <button className='mt-4 rounded' ><Link className='text-decoration-none text-dark ' to={`/recipe/${id} `}>View Recipes</Link></button>
+      </div>
+    </div>
+  </div>
+</div>
          
-          <Card  >
-        <div className='d-flex justify-content-between align-items-center'>
-        <div>
-         <Card.Img variant="top" style={{height:"300px",width:"300px"}} className=' ' src={picture} />
-         </div>
-     
-       
-        <div>
-          <Card.Title><h2 className='text-bold'>{name}</h2></Card.Title>
-             <p className='text-bold'>Experience:<small> {experience}</small></p>
-             <span> Recipes:{recipes}</span>
-             <p className='mt-5'>
-             <span> Likes: {likes}</span>
-             </p>
-        </div>
-        <div>
-        <Button className='btn-secondary'><Link to={`/recipe/${id}`}>View Recipes</Link></Button>
-        </div>
-        </div>
-      
-    </Card>
          
 
 
-
-
-
-
-
-           {/* <div className='d-flex'>
-           <div>
-             <img className='rounded' style={{height:"300px",width:"300px"}} src= alt="" />
-             </div>
-            <div>
-           
-            </div>
-             <div>
-             
-             </div>
-           </div> */}
+ 
               
           </Col>
-          <Col lg={2}>
+          <Col lg={3}>
          
           </Col>
 

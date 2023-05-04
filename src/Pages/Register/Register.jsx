@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { updateCurrentUser } from 'firebase/auth';
 
 const Register = () => {
-  const {user,CreateUser}=useContext(AuthContext)
+  const {user,CreateUser, UpdateUserProfile,userProfileUpdate}=useContext(AuthContext)
   const [error,setError]=useState("")
   const [Value,setValue]=useState("")
     
@@ -30,6 +31,13 @@ const Register = () => {
     .then(result =>{
         const createdUser = result.user;
         console.log(createdUser)
+        userProfileUpdate(createdUser,name,photo)
+        .then(result =>{
+          alert('Profile create successfully')
+          console.log(result)
+        })
+        .catch(error=>alert("user profile not updated"))
+
     })
     .catch(error=>{
         console.log(error)
@@ -42,7 +50,7 @@ const Register = () => {
 
     return (
         <Container className="w-25 mx-auto mt-5">
-        <h2>Please  Register, {user.displayName} </h2>
+        <h2>Please  Register,   </h2>
         <Form onSubmit={handleSubmit} >
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>

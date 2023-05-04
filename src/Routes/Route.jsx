@@ -21,26 +21,32 @@ import ErrorPage from '../Erropage/ErrorPage';
         path:"/",
         element:<LoginLayout></LoginLayout>,
         errorElement:<ErrorPage></ErrorPage>,
+         
     children:[
         {
           path:'/',
           element:<Home></Home>
+           
         },
         {
          path:'about',
-         element:<About></About>
+         element:<About></About>,
+         errorElement:<ErrorPage></ErrorPage>
         },
         {
          path:'blog',
-         element:<Blog></Blog>
+         element:<Blog></Blog>,
+         errorElement:<ErrorPage></ErrorPage>
         },
         {
             path:'login',
-            element:<Login></Login>
+            element:<Login></Login>,
+            errorElement:<ErrorPage></ErrorPage>
         },
         {
             path:'register',
-            element:<Register></Register>
+            element:<Register></Register>,
+            errorElement:<ErrorPage></ErrorPage>
         }
     ]
      },

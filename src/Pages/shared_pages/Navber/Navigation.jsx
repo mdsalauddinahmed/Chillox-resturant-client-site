@@ -35,8 +35,8 @@ const handleLogOut=()=>{
             <Link to="/blog" className='mx-4 text-decoration-none text-white '>Blogs</Link>
           </Nav>
           {
-            user&&
-            <FaUser style={{fontSize:'2rem'}} ></FaUser>
+            user &&
+             <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={user?.photoURL} alt="not found" />
           }
           { user?
             
