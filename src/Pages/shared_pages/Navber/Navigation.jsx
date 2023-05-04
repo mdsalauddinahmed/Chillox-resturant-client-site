@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import NavigationStyle from './NavigationStyle.css'
  
  
 import { Link } from 'react-router-dom';
@@ -9,6 +10,14 @@ import { FaUser } from 'react-icons/fa';
 
 const Navigation = () => {
  const { user,logOut} = useContext(AuthContext)
+ const [activeRoute, setActiveRoute] = useState('home');
+
+//  active 
+const handleHomeClick = () => setActiveRoute('home');
+const handleAboutClick = () => setActiveRoute('about');
+const handleBlogClick = () => setActiveRoute('blog');
+
+
 const handleLogOut=()=>{
   logOut()
   .then()
@@ -30,9 +39,9 @@ const handleLogOut=()=>{
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-           <Link to="/" className='mx-4 text-decoration-none text-white  '>Home</Link>
-            <Link to="/about" className='mx-4 text-decoration-none text-white  '>About Us</Link>
-            <Link to="/blog" className='mx-4 text-decoration-none text-white '>Blogs</Link>
+         <div className={activeRoute === 'home' ? 'active' : ''} ><Link onClick={handleHomeClick} to="/" className='mx-4 text-decoration-none text-white  '>Home</Link></div>
+           <div className={activeRoute === 'about' ? 'active' : ''}><Link onClick={handleAboutClick} to="/about" className='mx-4 text-decoration-none text-white '>About Us</Link></div>
+          <div className={activeRoute === 'blog' ? 'active' : ''}><Link onClick={handleBlogClick} to="/blog" className='mx-4 text-decoration-none text-white '>Blogs</Link></div>
           </Nav>
           {
             user &&

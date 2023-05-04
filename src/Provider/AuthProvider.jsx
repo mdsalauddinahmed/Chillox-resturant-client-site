@@ -34,21 +34,23 @@ const AuthProvider = ({children}) => {
        },[])
 
    const userProfileUpdate =(user,name,photo)=>{
+    setReload(true)
    return updateProfile(user,{
           displayName: name  , photoURL:  photo
         })
       }
 
-      const Provider = new GoogleAuthProvider();
+      const GoogleProvider = new GoogleAuthProvider();
       const GitProvider = new GithubAuthProvider();
 
 
       const logInWithGoogle =()=>{
-
-        return signInWithPopup(auth,Provider)
+        setReload(true)
+        return signInWithPopup(auth,GoogleProvider)
       }
-      
+
    const logInWithGithub =()=>{
+    setReload(true)
      return signInWithPopup(auth, GitProvider)
    }
 
