@@ -30,7 +30,7 @@ const Recipe = () => {
                     <h2>Experience: {experience}</h2>
                 </Col>
                 <Col lg={6} className=''>
-                    <img className='rounded m-5' src={picture} alt="" />
+                    <img className='rounded m-5' style={{height:"400px",width:"400px"}} src={picture} alt="" />
                 </Col>
             </Row>
             <hr />
