@@ -5,6 +5,8 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
     const [error,setError]=useState("")
+    const [gitError,setGitError]=useState("")
+    const [googleError,setGoogleError]=useState("")
     const navigate = useNavigate()
     const location =useLocation()
     const from = location.state?.from?.pathname || '/'
@@ -23,7 +25,8 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        setGoogleError(errorMessage)
+        
       });
      }
 
@@ -39,6 +42,8 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        setGitError(errorMessage)
+
       });
      }
 
@@ -90,6 +95,12 @@ const Login = () => {
           <br />
         <Form.Text className="  text-warning">
          {error}
+          </Form.Text>
+        <Form.Text className="  text-warning">
+          {googleError}
+          </Form.Text>
+        <Form.Text className="  text-warning">
+         {gitError}
           </Form.Text>
          
       </Form>
