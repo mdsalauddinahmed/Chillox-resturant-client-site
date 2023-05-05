@@ -17,7 +17,8 @@ const Login = () => {
        logInWithGoogle()
        .then((result) => {
         const user = result.user;
-        setUser(user);
+         setUser(user);
+        navigate( from, {replace:true})
         console.log(user);
       })
       .catch((error) => {
@@ -30,7 +31,11 @@ const Login = () => {
       logInWithGithub()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        if(user){
+          navigate( from,{replace:true})
+        }
+         
+        
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -42,7 +47,7 @@ const Login = () => {
     const form= event.target;
     const email = form.email.value;
     const  password = form.password.value;
-    event.target.reset()
+    event.reset()
     console.log(email, password)
     signIn(email,password)
     .then(result=>{
@@ -61,8 +66,7 @@ const Login = () => {
     return (
         <Container className="w-25 mx-auto mt-5">
      <Row>
-        <Col lg={2}></Col>
-        <Col lg={8}>
+          <h1>Please Confirm Your login</h1>
         <Form onSubmit={handleLogin} >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -90,8 +94,8 @@ const Login = () => {
          
       </Form>
 
-        </Col>
-        <Col lg={2}></Col>
+        
+        
 
      </Row>
      <Row>

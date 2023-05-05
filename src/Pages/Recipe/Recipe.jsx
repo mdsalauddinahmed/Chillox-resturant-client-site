@@ -31,7 +31,7 @@ const Recipe = () => {
                     <h2>Experience: {experience}</h2>
                 </Col>
                 <Col lg={6} className=''>
-                    <LazyLoad offset={100} once>
+                    <LazyLoad height={200} offset={100} once>
                     <img className='rounded m-5' style={{height:"400px",width:"400px"}} src={picture} alt="" />
                     </LazyLoad>
                 </Col>

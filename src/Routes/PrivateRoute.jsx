@@ -7,13 +7,18 @@ const PrivateRoute = ({children}) => {
     const {user,reload}=useContext(AuthContext)
     const location =useLocation()
  if(reload){
-    return <>Loading...<Spinner animation="grow" /></>
+    return  <>
+    <Spinner animation="border" size="sm" />
+    <Spinner animation="border" />
+    <Spinner animation="grow" size="sm" />
+    <Spinner animation="grow" />
+  </>
  }
    if(user){
     return children
    }
 
-    return <Navigate state={{from:location}} to="/login"></Navigate>
+    return <Navigate state={{from:location}} to="/login" replace></Navigate>
 };
 
 export default PrivateRoute;

@@ -1,9 +1,12 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
+ 
 
 const Blog = () => {
+   
   return (
     <Container>
+ 
       <Row>
         <h2>Uncontrolled vs Controlled Components in React?</h2>
         <h4>Controlled Components:</h4>
@@ -61,6 +64,7 @@ const Blog = () => {
         </p>
          
       </Row>
+       
     </Container>
   );
 };

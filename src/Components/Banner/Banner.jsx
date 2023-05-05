@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Carousel, Container } from "react-bootstrap";
 import banner from './Banner.css'
- import cover1 from '../../assets/Artboard 3.png'
+ import cover1 from '../../assets/Chillox.jpg'
  
 
 const Banner = () => {
@@ -10,7 +10,7 @@ const Banner = () => {
        <Carousel>
       <Carousel.Item interval={4000}>
         <img
-          className="d-block w-100"
+          className="d-block w-100 h-80% h"
           src= {cover1}
           alt="First slide"
         />

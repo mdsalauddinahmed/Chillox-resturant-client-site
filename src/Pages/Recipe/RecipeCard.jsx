@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
  
+ 
+ 
 import 'react-toastify/dist/ReactToastify.css';
 
 import '@smastrom/react-rating/style.css'
 import { Button, Card, Container } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
+ 
  
 const RecipeCard = ({card}) => {
     console.log(card)
@@ -37,6 +40,7 @@ const RecipeCard = ({card}) => {
          <div className='d-flex justify-content-between align-items-center'>
        <div><Rating style={{ maxWidth: 250 }} readOnly value={rating} />Rating: <span>{rating}</span></div>
        <div>
+       {/* <AwesomeButton type="primary">Primary</AwesomeButton> */}
         <Button onClick={notify} disabled={Favorite} variant="secondary">Favorite</Button>
         <ToastContainer></ToastContainer>
        </div>

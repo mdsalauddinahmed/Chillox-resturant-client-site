@@ -10,28 +10,26 @@ const SingleChef = ({data}) => {
     return (
        <Container>
         <Row className='my-4'>
-          <Col lg={3}>
-          
-          </Col>
-          <Col className='mt-2' lg={6}>
+           
+          <Col className='mt-2' lg={12}>
 
 
           <div class="card " >
   <div className="row g-0">
     <div className="col-md-4">
-   <LazyLoad offset={1000} once>
-   <img className='  m-3 rounded' style={{width:"200px",height:"200px"}} src={picture} alt="" />
+   <LazyLoad height={200} offset={100} once>
+   <img className='  mt-2  rounded' style={{width:"200px",height:"200px"}} src={picture} alt="" />
    </LazyLoad>
     </div>
-    <div className="col-md-8">
-      <div className="card-body ms-5 p-3 mt-4">
+    <div className="col-md-8 ">
+      <div className="card-body ms-5 p-3 mt-4 ">
         <h5 className="card-title">{name}</h5>
         <p className="card-text">
           <span> Recipes: {recipes}</span>
           <span className='mx-4'>  Likes: {likes }</span>
         </p>
-        <h4 className="card-text">Experience:<small className="text-muted">{experience} </small></h4>
-        <button className='mt-4 rounded' ><Link className='text-decoration-none text-dark ' to={`/recipe/${id} `}>View Recipes</Link></button>
+        <h4 className="card-text">Experience: <small className="text-muted">{experience} </small></h4>
+        <button className='mt-4 rounded border-0' ><Link className='text-decoration-none text-dark ' to={`/recipe/${id} `}>View Recipes</Link></button>
       </div>
     </div>
   </div>
@@ -43,9 +41,7 @@ const SingleChef = ({data}) => {
  
               
           </Col>
-          <Col lg={3}>
-         
-          </Col>
+           
 
         </Row>
    

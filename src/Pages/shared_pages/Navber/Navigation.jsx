@@ -45,6 +45,7 @@ const handleLogOut=()=>{
           </Nav>
           {
             user &&
+            
              <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={user?.photoURL} alt="not found" />
           }
           { user?
