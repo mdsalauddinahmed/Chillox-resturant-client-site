@@ -36,7 +36,7 @@ const Recipe = () => {
                     </LazyLoad>
                 </Col>
             </Row>
-            <hr />
+            
             <Row>
                 <div className='my-5'>
                 {

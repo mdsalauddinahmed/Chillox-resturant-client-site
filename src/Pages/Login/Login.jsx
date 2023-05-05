@@ -17,10 +17,11 @@ const Login = () => {
      const handleLogInGoogle=()=>{
       console.log('clicked')
        logInWithGoogle()
+       navigate( from, {replace:true})
        .then((result) => {
         const user = result.user;
          setUser(user);
-        navigate( from, {replace:true})
+        
         console.log(user);
       })
       .catch((error) => {
@@ -32,14 +33,11 @@ const Login = () => {
 
      const handleLogInGithub =()=>{
       logInWithGithub()
+      navigate( from,{replace:true})
       .then((result) => {
         const user = result.user;
-        if(user){
-          navigate( from,{replace:true})
-        }
          
-        
-      })
+         })
       .catch((error) => {
         const errorMessage = error.message;
         setGitError(errorMessage)
